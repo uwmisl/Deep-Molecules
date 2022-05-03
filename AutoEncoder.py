@@ -22,7 +22,7 @@ import random
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MAX_LENGTH = 600
-DATA_DIR = './data/PDB2021AUG02-short.csv'
+DATA_DIR = './data/PDB-2021AUG02.csv'
 
 import time
 import math
@@ -57,7 +57,7 @@ def load_dataset(max_length, data_dir=''):
     
     
     lines = [l for l in lines if (len(l) <= max_length)]
-    # lines = [tuple(l + '0'*(max_length - len(l))) for l in lines] # pad with 0
+    lines = [tuple(l + '0'*(MAX_LENGTH - len(l))) for l in lines] # pad with 0
     print("loaded {} lines in dataset".format(len(lines)))
     np.random.shuffle(lines) 
     return lines
@@ -71,8 +71,8 @@ class Lang:
         self.name = name
         self.char2index = {}
         self.char2count = {}
-        self.char2word = {0: "SOS", 1: "EOS"}
-        self.n_chars = 2  # Count SOS and EOS
+        self.char2word = {}
+        self.n_chars = 0
 
     def addSequence(self, seq):
         for c in list(seq):
@@ -96,15 +96,17 @@ def prepare_data(max_len=MAX_LENGTH, data_dir=DATA_DIR):
     lang = Lang("PDB")
     for line in lines:
         lang.addSequence(line)
-    return (lang, lang, [[s, s] for s in lines])
+    retlines = []
+    for s in lines:
+        retlines.append(F.one_hot(tensorFromSequence(lang, s), num_classes=lang.n_chars).float())
+    return (lang, lang, [[s, s] for s in retlines])
 
 def indexesFromSequence(lang, sequence):
     return [lang.char2index[c] for c in list(sequence)]
 
 def tensorFromSequence(lang, sequence):
     indexes = indexesFromSequence(lang, sequence)
-    indexes.append(1)
-    return torch.tensor(indexes, dtype=torch.long, device=device).view(-1, 1)
+    return torch.tensor(indexes, dtype=torch.long, device=device)
 
 input_lang, output_lang, pairs = prepare_data()
 
@@ -114,7 +116,7 @@ def tensorsFromPair(pair):
     return (input_tensor, target_tensor)
 
 
-# In[13]:
+# In[6]:
 
 
 # class EncoderRNN(nn.Module):
@@ -140,8 +142,7 @@ class EncoderRNN(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers=1):
         super(EncoderRNN, self).__init__()
         self.hidden_size = hidden_size
-        self.embedding = nn.Embedding(input_size, hidden_size)
-        self.layers = nn.Sequential(nn.Linear(hidden_size, hidden_size), 
+        self.layers = nn.Sequential(nn.Linear(input_size, hidden_size), 
                                     nn.ReLU(), 
                                     nn.Linear(hidden_size, hidden_size), 
                                     nn.ReLU(),
@@ -149,23 +150,20 @@ class EncoderRNN(nn.Module):
                                     nn.ReLU())
 
     def forward(self, input):
-        output = self.embedding(input)
-        output = self.layers(output)
+        output = self.layers(input)
         return output
 
     def initHidden(self):
         return torch.zeros(1, 1, self.hidden_size, device=device)
 
 
-# In[14]:
+# In[7]:
 
 
 class DecoderRNN(nn.Module):
     def __init__(self, hidden_size, output_size, num_layers=1):
         super(DecoderRNN, self).__init__()
         self.hidden_size = hidden_size
-        self.num_layers = num_layers
-        self.embedding = nn.Embedding(output_size, hidden_size)
         self.layers = nn.Sequential(nn.Linear(hidden_size, hidden_size), 
                                     nn.ReLU(), 
                                     nn.Linear(hidden_size, hidden_size), 
@@ -173,12 +171,11 @@ class DecoderRNN(nn.Module):
                                     nn.Linear(hidden_size, hidden_size), 
                                     nn.ReLU())
         self.out = nn.Linear(hidden_size, output_size)
-        self.softmax = nn.LogSoftmax()
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, input):
-        output = self.embedding(input)
-        output = self.layers(output)
-        output = self.softmax(self.out(output))
+        output = self.layers(input)
+        output = self.sigmoid(self.out(output))
         return output
 
     def initHidden(self):
@@ -201,67 +198,28 @@ class DecoderRNN(nn.Module):
 #         return x
 
 
-# In[9]:
+# In[32]:
 
 
-teacher_forcing_ratio = 0.5
-
-
-def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, decoder_optimizer, criterion, max_length=MAX_LENGTH):
-    encoder_hidden = encoder.initHidden()
-
+def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, decoder_optimizer, criterion):
     encoder_optimizer.zero_grad()
     decoder_optimizer.zero_grad()
-
-    input_length = input_tensor.size(0)
-    target_length = target_tensor.size(0)
-
-    encoder_outputs = torch.zeros(max_length, encoder.hidden_size, device=device)
-
-    loss = 0
-
-    for ei in range(input_length):
-        encoder_output, encoder_hidden = encoder(
-            input_tensor[ei], encoder_hidden)
-
-    decoder_input = torch.tensor([[0]], device=device)
-
-    decoder_hidden = encoder_hidden
-
-    use_teacher_forcing = True if random.random() < teacher_forcing_ratio else False
-
-    if use_teacher_forcing:
-        # Teacher forcing: Feed the target as the next input
-        for di in range(target_length):
-            decoder_output, decoder_hidden = decoder(
-                decoder_input, decoder_hidden)
-            loss += criterion(decoder_output, target_tensor[di])
-            decoder_input = target_tensor[di]  # Teacher forcing
-
-    else:
-        # Without teacher forcing: use its own predictions as the next input
-        for di in range(target_length):
-            decoder_output, decoder_hidden = decoder(
-                decoder_input, decoder_hidden)
-            topv, topi = decoder_output.topk(1)
-            decoder_input = topi.squeeze().detach()  # detach from history as input
-
-            loss += criterion(decoder_output, target_tensor[di])
-            if decoder_input.item() == 1:
-                break
-
+    
+    encoder_hidden = encoder(input_tensor)
+    decoder_output = decoder(encoder_hidden)
+    loss = criterion(decoder_output, target_tensor)
     loss.backward()
 
     encoder_optimizer.step()
     decoder_optimizer.step()
 
-    return loss.item() / target_length
+    return decoder_output, loss.item()
 
 
-# In[10]:
+# In[43]:
 
 
-def trainIters(encoder, decoder, n_iters, print_every=1000, plot_every=100, learning_rate=0.01):
+def trainIters(encoder, decoder, n_iters, epochs, print_every=1, plot_every=1, learning_rate=0.01):
     start = time.time()
     plot_losses = []
     print_loss_total = 0  # Reset every print_every
@@ -269,40 +227,46 @@ def trainIters(encoder, decoder, n_iters, print_every=1000, plot_every=100, lear
 
     encoder_optimizer = optim.SGD(encoder.parameters(), lr=learning_rate)
     decoder_optimizer = optim.SGD(decoder.parameters(), lr=learning_rate)
-    training_pairs = [tensorsFromPair(random.choice(pairs))
-                      for i in range(n_iters)]
-    criterion = nn.NLLLoss()
+    criterion = nn.MSELoss()
+    
+    for e in range(1, epochs + 1):
+        training_pairs = [random.choice(pairs) for i in range(n_iters)]
+        for iter in range(1, n_iters + 1):
+            training_pair = training_pairs[iter - 1]
+            input_tensor = training_pair[0].view(-1, MAX_LENGTH * input_lang.n_chars)
+            target_tensor = training_pair[1].view(-1, MAX_LENGTH * input_lang.n_chars)
 
-    for iter in range(1, n_iters + 1):
-        training_pair = training_pairs[iter - 1]
-        input_tensor = training_pair[0]
-        target_tensor = training_pair[1]
+            output_tensor, loss = train(input_tensor, target_tensor, encoder,
+                         decoder, encoder_optimizer, decoder_optimizer, criterion)
+            print_loss_total += loss
+            plot_loss_total += loss
+            
+            with torch.no_grad():
+                if iter % 1000 == 0:
+                    print('\tIteration %d Loss: %.4f' % (iter, loss))
+                    print('\t\t Output:', torch.argmax(output_tensor.view(MAX_LENGTH, input_lang.n_chars), dim=1))
+                    print('\t\t Input:', torch.argmax(training_pair[1].view(MAX_LENGTH, input_lang.n_chars), dim=1))
 
-        loss = train(input_tensor, target_tensor, encoder,
-                     decoder, encoder_optimizer, decoder_optimizer, criterion)
-        print_loss_total += loss
-        plot_loss_total += loss
-
-        if iter % print_every == 0:
-            print_loss_avg = print_loss_total / print_every
+        if e % print_every == 0:
+            print_loss_avg = print_loss_total / n_iters
             print_loss_total = 0
-            print('%s (%d %d%%) Loss: %.4f' % (timeSince(start, iter / n_iters),
-                                         iter, iter / n_iters * 100, print_loss_avg))
+            print('%s (%d %d%%) Loss: %.4f' % (timeSince(start, e / epochs),
+                                         e, e / epochs * 100, print_loss_avg))
 
-        if iter % plot_every == 0:
-            plot_loss_avg = plot_loss_total / plot_every
+        if e % plot_every == 0:
+            plot_loss_avg = plot_loss_total / n_iters
             plot_losses.append(plot_loss_avg)
             plot_loss_total = 0
 
 
-# In[16]:
+# In[ ]:
 
 
 hidden_size = 500
-encoder1 = EncoderRNN(input_lang.n_chars, hidden_size, num_layers=1).to(device)
-decoder1 = DecoderRNN(hidden_size, output_lang.n_chars, num_layers=1).to(device)
+encoder1 = EncoderRNN(input_lang.n_chars * MAX_LENGTH, hidden_size, num_layers=1).to(device)
+decoder1 = DecoderRNN(hidden_size, output_lang.n_chars * MAX_LENGTH, num_layers=1).to(device)
 
-trainIters(encoder1, decoder1, 75000, print_every=100)
+trainIters(encoder1, decoder1, 100000, 500)
 
 
 # In[ ]:
