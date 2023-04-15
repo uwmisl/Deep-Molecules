@@ -1,0 +1,64 @@
+#!/bin/bash
+#SBATCH --job-name=jupyter
+#SBATCH --partition=gpu-rtx6k
+#SBATCH --account=ml4ml
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=18
+#SBATCH --gres=gpu:6
+#SBATCH --mem=300G
+#SBATCH --time=24:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=sidlak@uw.edu
+
+# I use source to initialize conda into the right environment.
+source ~/.bashrc
+conda activate /gscratch/ml4ml/sidlak/superfold/envs/pyroml
+
+cat $0
+echo "--------------------"
+
+jupyter notebook --no-browser --ip 0.0.0.0 --port=8888
+--------------------
+[W 2022-11-10 00:14:50.019 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-11-10 00:14:50.019 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-11-10 00:14:50.019 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-11-10 00:14:50.019 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2022-11-10 00:14:50.019 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2022-11-10 00:14:50.025 LabApp] JupyterLab extension loaded from /gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyterlab
+[I 2022-11-10 00:14:50.025 LabApp] JupyterLab application directory is /mmfs1/gscratch/ml4ml/sidlak/superfold/envs/pyroml/share/jupyter/lab
+/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyter_server_mathjax/app.py:40: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+  help=_("""The MathJax.js configuration file that is to be used."""),
+[I 00:14:50.876 NotebookApp] Serving notebooks from local directory: /mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules
+[I 00:14:50.876 NotebookApp] Jupyter Notebook 6.4.5 is running at:
+[I 00:14:50.876 NotebookApp] http://g3033:8888/
+[I 00:14:50.876 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 00:21:10.778 NotebookApp] 302 GET / (10.64.64.8) 0.550000ms
+[I 00:21:10.797 NotebookApp] 302 GET /tree? (10.64.64.8) 0.560000ms
+[I 00:21:17.819 NotebookApp] 302 POST /login?next=%2Ftree%3F (10.64.64.8) 121.140000ms
+[I 00:21:26.677 NotebookApp] Kernel started: b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8, name: python3
+[I 00:23:26.747 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:23:30.043 NotebookApp] Starting buffering for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:5242d4112222430192e63686738249f2
+[I 00:23:30.557 NotebookApp] Kernel restarted: b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8
+[I 00:23:30.610 NotebookApp] Restoring connection for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:5242d4112222430192e63686738249f2
+[I 00:23:31.117 NotebookApp] Replaying 3 buffered messages
+[I 00:25:26.693 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:27:26.728 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:29:27.358 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:31:26.742 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:33:26.732 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:47:26.721 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:48:25.753 NotebookApp] Kernel interrupted: b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8
+[I 00:49:26.701 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:51:26.750 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 00:53:26.754 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 01:07:26.721 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 01:20:38.277 NotebookApp] Starting buffering for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:5242d4112222430192e63686738249f2
+[I 11:11:37.289 NotebookApp] 302 GET / (10.64.64.8) 0.520000ms
+[I 11:26:03.620 NotebookApp] Discarding 43 buffered messages for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:5242d4112222430192e63686738249f2
+[I 11:31:36.267 NotebookApp] Starting buffering for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:09a3c3a242fe4739a4f4671a6fe67f84
+[I 12:03:47.414 NotebookApp] Restoring connection for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:09a3c3a242fe4739a4f4671a6fe67f84
+[I 12:03:47.414 NotebookApp] Replaying 3 buffered messages
+[I 12:19:03.197 NotebookApp] Starting buffering for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:09a3c3a242fe4739a4f4671a6fe67f84
+[I 12:25:15.066 NotebookApp] Restoring connection for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:09a3c3a242fe4739a4f4671a6fe67f84
+[I 13:21:20.610 NotebookApp] Starting buffering for b9e03b1e-c2de-4e3a-b4c9-5ff018e653b8:09a3c3a242fe4739a4f4671a6fe67f84
+slurmstepd: error: *** JOB 7391439 ON g3033 CANCELLED AT 2022-11-11T00:14:37 DUE TO TIME LIMIT ***
