@@ -1,865 +1,0 @@
-#!/bin/bash
-#SBATCH --job-name=jupyter
-#SBATCH --partition=gpu-rtx6k
-#SBATCH --account=ml4ml
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=18
-#SBATCH --gres=gpu:6
-#SBATCH --mem=300G
-#SBATCH --time=200:00:00
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=sidlak@uw.edu
-
-# I use source to initialize conda into the right environment.
-source ~/.bashrc
-conda activate /gscratch/ml4ml/sidlak/superfold/envs/pyroml
-
-cat $0
-echo "--------------------"
-
-jupyter notebook --no-browser --ip 0.0.0.0 --port=8888
---------------------
-[W 2022-09-23 14:34:04.487 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2022-09-23 14:34:04.487 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2022-09-23 14:34:04.487 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2022-09-23 14:34:04.487 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2022-09-23 14:34:04.487 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[I 2022-09-23 14:34:04.494 LabApp] JupyterLab extension loaded from /gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyterlab
-[I 2022-09-23 14:34:04.494 LabApp] JupyterLab application directory is /mmfs1/gscratch/ml4ml/sidlak/superfold/envs/pyroml/share/jupyter/lab
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyter_server_mathjax/app.py:40: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
-  help=_("""The MathJax.js configuration file that is to be used."""),
-[I 14:34:10.572 NotebookApp] Serving notebooks from local directory: /mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules
-[I 14:34:10.572 NotebookApp] Jupyter Notebook 6.4.5 is running at:
-[I 14:34:10.572 NotebookApp] http://g3024:8888/
-[I 14:34:10.572 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 14:34:14.970 NotebookApp] 302 GET / (10.64.64.8) 0.500000ms
-[I 14:34:32.558 NotebookApp] Kernel started: 8c5097f9-8b32-4b04-8b8a-22460db6920e, name: python3
-[I 14:38:32.772 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 14:40:32.654 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 15:06:33.419 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:30:32.788 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:31:36.129 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:f19fe014b659455894d94862400f9c6f
-[I 17:31:37.760 NotebookApp] Kernel restarted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 17:31:37.822 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:f19fe014b659455894d94862400f9c6f
-[W 17:31:42.331 NotebookApp] Nudge: attempt 10 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[W 17:31:47.341 NotebookApp] Nudge: attempt 20 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[W 17:31:52.351 NotebookApp] Nudge: attempt 30 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 17:31:53.771 NotebookApp] Replaying 6 buffered messages
-[I 17:32:32.656 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:34:32.711 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:36:01.538 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 17:36:32.664 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:38:32.707 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:40:32.710 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 20:53:04.774 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:f19fe014b659455894d94862400f9c6f
-[I 12:39:03.217 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 13:09:56.599 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 01:50:22.711 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 10:54:11.598 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 10:57:35.372 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 10:59:35.215 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:01:00.839 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:01:35.849 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:06:35.743 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:44.296 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:47.668 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:48.371 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:48.596 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:48.730 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:48.903 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:49.087 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:49.267 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:06:49.484 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:07:35.214 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:08:19.711 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:08:20.537 NotebookApp] Kernel interrupted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 11:09:35.183 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:11:35.152 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:19:35.174 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:21:35.171 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:25:35.180 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:27:35.137 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:29:35.329 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:31:35.147 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:33:35.152 NotebookApp] Saving file at /AutoEncoder.ipynb
-  0%|          | 0/2 [00:00<?, ?it/s]Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:06<?, ?it/s][A[I 11:35:35.201 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:51<00:00, 291.54s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:53<00:00, 293.80s/it]
-Input: r1:  50%|█████     | 1/2 [04:53<04:53, 293.80s/it]Input: f1:  50%|█████     | 1/2 [04:53<04:53, 293.80s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:0.19 mean_plddt:78.49 pTMscore:0.29 elapsed time (s): 365.3175926208496
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A[I 11:39:35.189 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:32<00:00, 212.21s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [03:34<00:00, 214.28s/it]
-Input: f1: 100%|██████████| 2/2 [08:28<00:00, 247.03s/it]Input: f1: 100%|██████████| 2/2 [08:28<00:00, 254.04s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:7.11 mean_plddt:22.22 pTMscore:0.15 elapsed time (s): 214.27975225448608
-[I 11:43:35.743 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 12:25:29.036 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 19:40:50.136 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 19:41:10.249 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:43:10.730 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:44:27.282 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 19:44:32.659 NotebookApp] Kernel restarted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 19:44:32.720 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[W 19:44:37.231 NotebookApp] Nudge: attempt 10 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[W 19:44:42.240 NotebookApp] Nudge: attempt 20 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 19:44:46.751 NotebookApp] Replaying 3 buffered messages
-[I 19:45:10.730 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:47:10.731 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:07<?, ?it/s][A[I 19:49:10.201 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:49:26.204 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:e2f42eb2f2554eb99146f8a3a1dc8a9a
-[I 19:50:43.437 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:8843919660a940fa85590bbc3d1b7ea8
-[I 19:50:47.767 NotebookApp] Kernel restarted: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 19:50:47.861 NotebookApp] Restoring connection for 8c5097f9-8b32-4b04-8b8a-22460db6920e:8843919660a940fa85590bbc3d1b7ea8
-[W 19:50:52.370 NotebookApp] Nudge: attempt 10 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[W 19:50:57.379 NotebookApp] Nudge: attempt 20 on kernel 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[I 19:51:00.888 NotebookApp] Replaying 3 buffered messages
-[I 19:51:28.391 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:51:46.631 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 19:51:56.952 NotebookApp] Starting buffering for 8c5097f9-8b32-4b04-8b8a-22460db6920e:8843919660a940fa85590bbc3d1b7ea8
-[I 19:51:56.963 NotebookApp] Kernel shutdown: 8c5097f9-8b32-4b04-8b8a-22460db6920e
-[W 19:52:09.279 NotebookApp] 404 GET /api/kernels/8c5097f9-8b32-4b04-8b8a-22460db6920e/channels?session_id=8843919660a940fa85590bbc3d1b7ea8 (10.64.64.8) 19.190000ms referer=None
-[W 19:52:11.325 NotebookApp] Replacing stale connection: 8c5097f9-8b32-4b04-8b8a-22460db6920e:8843919660a940fa85590bbc3d1b7ea8
-[I 19:52:30.442 NotebookApp] Kernel started: 65f1e27b-be5e-47f1-abea-968df9cbc55b, name: python3
-[I 19:54:30.756 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:07<?, ?it/s][A[I 19:56:30.705 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:53<00:00, 293.13s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:55<00:00, 295.46s/it]
-Input: r1:  50%|█████     | 1/2 [04:55<04:55, 295.46s/it]Input: f1:  50%|█████     | 1/2 [04:55<04:55, 295.46s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:7.71 mean_plddt:27.48 pTMscore:0.23 elapsed time (s): 359.9472153186798
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A[I 20:00:30.757 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:34<00:00, 214.54s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [03:36<00:00, 216.94s/it]
-Input: f1: 100%|██████████| 2/2 [08:32<00:00, 249.27s/it]Input: f1: 100%|██████████| 2/2 [08:32<00:00, 256.20s/it]f1 model_5_ptm_seed_0 recycles:3 tol:12.03 mean_plddt:23.00 pTMscore:0.15 elapsed time (s): 216.93461513519287
-
-[I 20:04:36.796 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:07<?, ?it/s][A[I 20:06:36.785 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:48<00:00, 288.73s/it][A[I 20:10:36.800 NotebookApp] Saving file at /AutoEncoder.ipynb
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:50<00:00, 290.99s/it]
-Input: r1:  50%|█████     | 1/2 [04:50<04:50, 290.99s/it]Input: f1:  50%|█████     | 1/2 [04:50<04:50, 290.99s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:3.19 mean_plddt:32.19 pTMscore:0.27 elapsed time (s): 361.61469173431396
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A[I 20:12:30.540 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:30<00:00, 210.58s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [03:32<00:00, 212.63s/it]
-Input: f1: 100%|██████████| 2/2 [08:23<00:00, 244.90s/it]Input: f1: 100%|██████████| 2/2 [08:23<00:00, 251.81s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:8.03 mean_plddt:25.20 pTMscore:0.17 elapsed time (s): 212.6277961730957
-[I 20:14:30.726 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A[I 20:16:30.752 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 20:17:13.122 NotebookApp] Starting buffering for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:45<00:00, 285.74s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:47<00:00, 287.89s/it]
-Input: r1:  50%|█████     | 1/2 [04:47<04:47, 287.89s/it]Input: f1:  50%|█████     | 1/2 [04:47<04:47, 287.89s/it]
-  0%|          | 0/1 [00:00<?, ?it/s][Ar1 model_5_ptm_seed_0 recycles:3 tol:1.26 mean_plddt:45.91 pTMscore:0.27 elapsed time (s): 347.52008867263794
-
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:33<00:00, 213.24s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [03:35<00:00, 215.27s/it]
-Input: f1: 100%|██████████| 2/2 [08:23<00:00, 245.17s/it]Input: f1: 100%|██████████| 2/2 [08:23<00:00, 251.58s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:5.99 mean_plddt:25.75 pTMscore:0.20 elapsed time (s): 215.26579976081848
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:51<00:00, 231.19s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:53<00:00, 233.32s/it]
-Input: r1:  50%|█████     | 1/2 [03:53<03:53, 233.32s/it]Input: f1:  50%|█████     | 1/2 [03:53<03:53, 233.32s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:1.51 mean_plddt:34.04 pTMscore:0.24 elapsed time (s): 300.59875750541687
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:35<00:00, 155.99s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [02:37<00:00, 157.94s/it]
-Input: f1: 100%|██████████| 2/2 [06:31<00:00, 188.98s/it]Input: f1: 100%|██████████| 2/2 [06:31<00:00, 195.63s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:5.19 mean_plddt:25.62 pTMscore:0.17 elapsed time (s): 157.9353632926941
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:31<00:00, 211.62s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:33<00:00, 213.70s/it]
-Input: r1:  50%|█████     | 1/2 [03:33<03:33, 213.70s/it]Input: f1:  50%|█████     | 1/2 [03:33<03:33, 213.70s/it]
-  0%|          | 0/1 [00:00<?, ?it/s][Ar1 model_5_ptm_seed_0 recycles:3 tol:3.58 mean_plddt:33.25 pTMscore:0.25 elapsed time (s): 279.2728543281555
-
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:17<00:00, 137.54s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [02:19<00:00, 139.41s/it]
-Input: f1: 100%|██████████| 2/2 [05:53<00:00, 170.00s/it]Input: f1: 100%|██████████| 2/2 [05:53<00:00, 176.56s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:4.67 mean_plddt:23.05 pTMscore:0.14 elapsed time (s): 139.41158723831177
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:12<00:00, 192.75s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [03:14<00:00, 194.71s/it]
-Input: r1:  50%|█████     | 1/2 [03:14<03:14, 194.71s/it]Input: f1:  50%|█████     | 1/2 [03:14<03:14, 194.71s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:1.49 mean_plddt:46.14 pTMscore:0.28 elapsed time (s): 266.62613105773926
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:59<00:00, 119.60s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [02:01<00:00, 121.44s/it]
-Input: f1: 100%|██████████| 2/2 [05:16<00:00, 151.61s/it]Input: f1: 100%|██████████| 2/2 [05:16<00:00, 158.08s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:7.09 mean_plddt:22.00 pTMscore:0.13 elapsed time (s): 121.44227504730225
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:19<00:00, 139.20s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:21<00:00, 141.08s/it]
-Input: r1:  50%|█████     | 1/2 [02:21<02:21, 141.08s/it]Input: f1:  50%|█████     | 1/2 [02:21<02:21, 141.08s/it]
-r1 model_5_ptm_seed_0 recycles:3 tol:0.57 mean_plddt:33.36 pTMscore:0.25 elapsed time (s): 208.93671917915344
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:07<00:00, 67.84s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [01:09<00:00, 69.58s/it]
-Input: f1: 100%|██████████| 2/2 [03:30<00:00, 99.02s/it] Input: f1: 100%|██████████| 2/2 [03:30<00:00, 105.33s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:4.80 mean_plddt:23.80 pTMscore:0.14 elapsed time (s): 69.57498741149902
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:14<00:00, 134.10s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [02:15<00:00, 135.90s/it]
-Input: r1:  50%|█████     | 1/2 [02:15<02:15, 135.90s/it]Input: f1:  50%|█████     | 1/2 [02:15<02:15, 135.90s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:0.59 mean_plddt:70.82 pTMscore:0.28 elapsed time (s): 211.90175938606262
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [00:58<00:00, 58.30s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [00:59<00:00, 59.96s/it]
-Input: f1: 100%|██████████| 2/2 [03:15<00:00, 91.23s/it] Input: f1: 100%|██████████| 2/2 [03:15<00:00, 97.93s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:4.40 mean_plddt:25.95 pTMscore:0.17 elapsed time (s): 59.96306037902832
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:57<00:00, 117.55s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:59<00:00, 119.54s/it]
-Input: r1:  50%|█████     | 1/2 [01:59<01:59, 119.54s/it]Input: f1:  50%|█████     | 1/2 [01:59<01:59, 119.54s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:3.78 mean_plddt:57.68 pTMscore:0.24 elapsed time (s): 196.40276551246643
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:01<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [00:46<00:00, 46.05s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [00:47<00:00, 47.57s/it]
-Input: f1: 100%|██████████| 2/2 [02:47<00:00, 77.21s/it] Input: f1: 100%|██████████| 2/2 [02:47<00:00, 83.56s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:6.91 mean_plddt:24.22 pTMscore:0.16 elapsed time (s): 47.570032835006714
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-=======================================================================================
-WARNING: Your querys are shorter than 400 residues. This is a very small protein.
-You may want to use the CPU to conserve GPU resources for those who need them.
-Remember that you can launch far more jobs in parallel on CPUs than you can on GPUs...
-See this example of how prediction time scales on CPU vs GPU: 
-https://docs.google.com/spreadsheets/d/1jTGITpIx6fJehAplUkXtePOp7me3Dpq_pPKHn68F7XY
-=======================================================================================
-  0%|          | 0/2 [00:00<?, ?it/s]Input: r1:   0%|          | 0/2 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:46<00:00, 106.44s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [01:47<00:00, 107.99s/it]
-Input: r1:  50%|█████     | 1/2 [01:47<01:47, 107.99s/it]Input: f1:  50%|█████     | 1/2 [01:47<01:47, 107.99s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]r1 model_5_ptm_seed_0 recycles:3 tol:2.02 mean_plddt:41.64 pTMscore:0.26 elapsed time (s): 174.68866682052612
-[A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [00:35<00:00, 35.54s/it][ARunning model_5_ptm_seed_0: 100%|██████████| 1/1 [00:36<00:00, 36.94s/it]
-Input: f1: 100%|██████████| 2/2 [02:24<00:00, 66.20s/it] Input: f1: 100%|██████████| 2/2 [02:24<00:00, 72.47s/it]
-f1 model_5_ptm_seed_0 recycles:3 tol:5.82 mean_plddt:22.02 pTMscore:0.13 elapsed time (s): 36.94346380233765
-[I 11:04:05.832 NotebookApp] Restoring connection for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 11:04:05.852 NotebookApp] Replaying 161 buffered messages
-[I 11:06:04.668 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:08:04.700 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 11:09:30.239 NotebookApp] Starting buffering for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 17:37:53.979 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 17:46:04.493 NotebookApp] Restoring connection for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 20:45:53.843 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 20:48:02.594 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 20:57:11.709 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:00:11.658 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:09:11.797 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:12:11.553 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:15:11.929 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:18:11.590 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:21:11.729 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:24:11.573 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:27:11.587 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:30:11.997 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:32:14.385 NotebookApp] Starting buffering for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 21:32:19.651 NotebookApp] Kernel restarted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 21:32:19.762 NotebookApp] Restoring connection for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[W 21:32:24.272 NotebookApp] Nudge: attempt 10 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:32:29.282 NotebookApp] Nudge: attempt 20 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:32:34.292 NotebookApp] Nudge: attempt 30 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:32:39.303 NotebookApp] Nudge: attempt 40 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 21:32:41.873 NotebookApp] Replaying 3 buffered messages
-[I 21:33:04.679 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 21:33:11.555 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:36:11.547 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:39:11.532 NotebookApp] Saving file at /AutoEncoder.ipynb
-  0%|          | 0/1 [00:00<?, ?it/s]Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-Input: f1_2nlj_:   0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:07<?, ?it/s][A[I 21:42:11.573 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:57<00:00, 297.03s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:59<00:00, 299.44s/it]
-Input: f1_2nlj_: 100%|██████████| 1/1 [04:59<00:00, 299.44s/it]Input: f1_2nlj_: 100%|██████████| 1/1 [04:59<00:00, 299.44s/it]
-f1_2nlj_ model_5_ptm_seed_0 recycles:3 tol:12.01 mean_plddt:21.44 pTMscore:0.15 elapsed time (s): 390.2637119293213
-[I 21:48:11.607 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 21:57:11.557 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:03:11.626 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/1 [00:00<?, ?it/s]Input: f1_6s1e_:   0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:04<?, ?it/s][A[I 22:06:11.679 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:50<00:00, 290.81s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:53<00:00, 293.17s/it]
-Input: f1_6s1e_: 100%|██████████| 1/1 [04:53<00:00, 293.17s/it]Input: f1_6s1e_: 100%|██████████| 1/1 [04:53<00:00, 293.17s/it]
-f1_6s1e_ model_5_ptm_seed_0 recycles:3 tol:8.99 mean_plddt:21.16 pTMscore:0.14 elapsed time (s): 385.1385371685028
-[I 22:12:11.620 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:15:11.714 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:45:11.689 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:48:11.615 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/1 [00:00<?, ?it/s]Input: f1_1sf2_:   0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:07<?, ?it/s][A[I 22:51:11.616 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:04:30.920 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:36.547 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:41.541 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:43.120 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:43.286 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:43.462 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:43.615 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:44.261 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:44.429 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:44.596 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:44.765 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:44.951 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:45.130 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:45.294 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:45.500 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:04:45.719 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:20.344 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:20.505 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:20.666 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:20.835 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:20.995 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:21.155 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:21.329 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:21.487 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:21.630 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:21.847 NotebookApp] Kernel interrupted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:40.128 NotebookApp] Starting buffering for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 23:05:44.968 NotebookApp] Kernel restarted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:05:45.055 NotebookApp] Restoring connection for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[W 23:05:49.564 NotebookApp] Nudge: attempt 10 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 23:05:54.575 NotebookApp] Nudge: attempt 20 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 23:05:59.585 NotebookApp] Nudge: attempt 30 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:06:01.837 NotebookApp] Replaying 4 buffered messages
-[I 23:06:11.636 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:09:11.601 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/1 [00:00<?, ?it/s]Input: f1_4y78_:   0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:06<?, ?it/s][A[I 23:12:11.593 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:56<00:00, 296.11s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:58<00:00, 298.51s/it]
-Input: f1_4y78_: 100%|██████████| 1/1 [04:58<00:00, 298.51s/it]Input: f1_4y78_: 100%|██████████| 1/1 [04:58<00:00, 298.51s/it]
-f1_4y78_ model_5_ptm_seed_0 recycles:3 tol:3.22 mean_plddt:22.73 pTMscore:0.16 elapsed time (s): 359.4201228618622
-[I 23:15:11.647 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:18:11.626 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:32:44.018 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:33:41.831 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:35:31.160 NotebookApp] Kernel restarted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 23:35:35.717 NotebookApp] Nudge: attempt 10 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 23:35:40.728 NotebookApp] Nudge: attempt 20 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 23:35:45.739 NotebookApp] Nudge: attempt 30 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:35:50.705 NotebookApp] Saving file at /AutoEncoder.ipynb
-[W 23:35:50.807 NotebookApp] Nudge: attempt 40 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[I 23:37:50.663 NotebookApp] Saving file at /AutoEncoder.ipynb
-Warning: use "from pymol import cmd" instead of "import cmd"
-Done parsing fasta!
-
-using  gpu
-  0%|          | 0/1 [00:00<?, ?it/s]Input: f1_6k6j_:   0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:00<?, ?it/s][A
-Running model_5_ptm_seed_0:   0%|          | 0/1 [00:06<?, ?it/s][A[I 23:39:50.836 NotebookApp] Saving file at /AutoEncoder.ipynb
-
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:52<00:00, 292.16s/it][A/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
-  return _methods._mean(a, axis=axis, dtype=dtype,
-/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
-  ret = ret.dtype.type(ret / rcount)
-Running model_5_ptm_seed_0: 100%|██████████| 1/1 [04:54<00:00, 294.62s/it]
-Input: f1_6k6j_: 100%|██████████| 1/1 [04:54<00:00, 294.62s/it]Input: f1_6k6j_: 100%|██████████| 1/1 [04:54<00:00, 294.62s/it]
-f1_6k6j_ model_5_ptm_seed_0 recycles:3 tol:11.12 mean_plddt:22.47 pTMscore:0.15 elapsed time (s): 361.2901692390442
-[I 23:45:50.705 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:47:50.824 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:49:50.952 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:51:51.030 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:53:51.093 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:55:51.136 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:57:51.279 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:59:51.402 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 00:01:51.704 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 00:02:01.355 NotebookApp] Starting buffering for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[W 21:44:17.695 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20220923143322 (10.64.64.8) 39.040000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[I 21:44:34.864 NotebookApp] 302 GET / (10.64.64.8) 0.250000ms
-[I 21:44:49.105 NotebookApp] Discarding 709065 buffered messages for 65f1e27b-be5e-47f1-abea-968df9cbc55b:15b78e0d4b9c4c5b827310b24b6eda55
-[I 21:49:55.530 NotebookApp] Kernel restarted: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:00.164 NotebookApp] Nudge: attempt 10 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:05.173 NotebookApp] Nudge: attempt 20 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:10.182 NotebookApp] Nudge: attempt 30 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:15.192 NotebookApp] Nudge: attempt 40 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:20.203 NotebookApp] Nudge: attempt 50 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:25.214 NotebookApp] Nudge: attempt 60 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:30.224 NotebookApp] Nudge: attempt 70 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:35.235 NotebookApp] Nudge: attempt 80 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:40.244 NotebookApp] Nudge: attempt 90 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:45.254 NotebookApp] Nudge: attempt 100 on kernel 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:50:48.192 NotebookApp] delete /1CAU.clean.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1CAU.clean.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1CAU.clean.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1CAU.clean.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1CAU.clean.pdb'
-[W 21:53:31.645 NotebookApp] Unhandled error
-[E 21:53:31.645 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:31.645 NotebookApp] 500 DELETE /api/contents/1CAU.clean.pdb (10.64.64.8) 163453.860000ms referer=http://localhost:1234/tree
-[W 21:53:31.646 NotebookApp] Timeout waiting for kernel_info_reply: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-Future exception was never retrieved
-future: <Future finished exception=TimeoutError('Timeout waiting for restart')>
-TimeoutError: Timeout waiting for restart
-NotebookApp - ERROR - Uncaught exception GET /api/kernels/65f1e27b-be5e-47f1-abea-968df9cbc55b/channels?session_id=5fe3798cc98b49f78e94e6fac24d3f7b (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='GET', uri='/api/kernels/65f1e27b-be5e-47f1-abea-968df9cbc55b/channels?session_id=5fe3798cc98b49f78e94e6fac24d3f7b', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/websocket.py", line 956, in _accept_connection
-    await open_result
-tornado.util.TimeoutError: Timeout
-[W 21:53:31.663 NotebookApp] delete /1FIP.clean.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1FIP.clean.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1FIP.clean.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1FIP.clean.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1FIP.clean.pdb'
-[W 21:53:31.665 NotebookApp] Unhandled error
-[E 21:53:31.666 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:31.666 NotebookApp] 500 DELETE /api/contents/1FIP.clean.pdb (10.64.64.8) 18.730000ms referer=http://localhost:1234/tree
-[W 21:53:31.666 NotebookApp] delete /1E6B.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1E6B.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1E6B.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1E6B.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1E6B.pdb'
-[W 21:53:31.667 NotebookApp] Unhandled error
-[E 21:53:31.667 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:31.668 NotebookApp] 500 DELETE /api/contents/1E6B.pdb (10.64.64.8) 19.980000ms referer=http://localhost:1234/tree
-[W 21:53:31.668 NotebookApp] delete /1FIP.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1FIP.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1FIP.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1FIP.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1FIP.pdb'
-[W 21:53:31.669 NotebookApp] Unhandled error
-[E 21:53:31.670 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:31.670 NotebookApp] 500 DELETE /api/contents/1FIP.pdb (10.64.64.8) 21.240000ms referer=http://localhost:1234/tree
-[I 21:53:31.697 NotebookApp] Kernel shutdown: 65f1e27b-be5e-47f1-abea-968df9cbc55b
-[W 21:53:32.000 NotebookApp] Session not found: session_id='18975783-3b6d-40ed-bb98-8462a95c2f6f'
-[W 21:53:32.000 NotebookApp] 404 DELETE /api/sessions/18975783-3b6d-40ed-bb98-8462a95c2f6f (10.64.64.8) 350.650000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[I 21:53:32.000 NotebookApp] 302 GET / (10.64.64.8) 350.510000ms
-[I 21:53:32.001 NotebookApp] 302 GET / (10.64.64.8) 350.010000ms
-[W 21:53:32.001 NotebookApp] delete /1CAU.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1CAU.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1CAU.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1CAU.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1CAU.pdb'
-[W 21:53:32.005 NotebookApp] Unhandled error
-[E 21:53:32.005 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:32.006 NotebookApp] 500 DELETE /api/contents/1CAU.pdb (10.64.64.8) 342.820000ms referer=http://localhost:1234/tree
-[W 21:53:32.006 NotebookApp] delete /1E6B.clean.pdb
-NotebookApp - ERROR - Uncaught exception DELETE /api/contents/1E6B.clean.pdb (10.64.64.8)
-HTTPServerRequest(protocol='http', host='localhost:1234', method='DELETE', uri='/api/contents/1E6B.clean.pdb', version='HTTP/1.1', remote_ip='10.64.64.8')
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/web.py", line 1704, in _execute
-    result = await result
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
-    yielded = ctx_run(next, result)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/handlers.py", line 242, in delete
-    yield maybe_future(cm.delete(path))
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/manager.py", line 279, in delete
-    self.delete_file(path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/contents/filemanager.py", line 533, in delete_file
-    send2trash(os_path)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 211, in send2trash
-    trash_move(path_b, dest_trash, topdir)
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/send2trash/plat_other.py", line 117, in trash_move
-    os.rename(src, op.join(filespath, destname))
-OSError: [Errno 18] Invalid cross-device link: b'/mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules/1E6B.clean.pdb' -> b'/mmfs1/home/sidlak/.local/share/Trash/files/1E6B.clean.pdb'
-[W 21:53:32.009 NotebookApp] Unhandled error
-[E 21:53:32.009 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/tree",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 21:53:32.009 NotebookApp] 500 DELETE /api/contents/1E6B.clean.pdb (10.64.64.8) 346.310000ms referer=http://localhost:1234/tree
-[W 21:53:55.659 NotebookApp] WebSocket ping timeout after 240005 ms.
-[I 21:55:50.928 NotebookApp] Kernel started: 09d2b03d-99c0-4f79-ad1d-e7640345e261, name: python3
-[W 21:57:00.249 NotebookApp] Timeout waiting for kernel_info reply from 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:05.158 NotebookApp] Nudge: attempt 10 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:10.171 NotebookApp] Nudge: attempt 20 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:15.181 NotebookApp] Nudge: attempt 30 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:20.192 NotebookApp] Nudge: attempt 40 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:25.203 NotebookApp] Nudge: attempt 50 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:30.214 NotebookApp] Nudge: attempt 60 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:35.224 NotebookApp] Nudge: attempt 70 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:40.234 NotebookApp] Nudge: attempt 80 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 21:57:45.244 NotebookApp] Nudge: attempt 90 on kernel 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 21:59:52.277 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:14:20.676 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 22:55:02.609 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:11:13.655 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:14:39.980 NotebookApp] Starting buffering for 09d2b03d-99c0-4f79-ad1d-e7640345e261:6271146f8446488abaa5b188a577fac9
-[I 23:14:39.981 NotebookApp] Kernel interrupted: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:14:39.981 NotebookApp] Kernel interrupted: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:14:39.982 NotebookApp] Kernel interrupted: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:14:39.983 NotebookApp] Restoring connection for 09d2b03d-99c0-4f79-ad1d-e7640345e261:6271146f8446488abaa5b188a577fac9
-[I 23:14:40.006 NotebookApp] Kernel interrupted: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:14:41.758 NotebookApp] Kernel restarted: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:14:41.793 NotebookApp] Starting buffering for 09d2b03d-99c0-4f79-ad1d-e7640345e261:6271146f8446488abaa5b188a577fac9
-[I 23:14:41.834 NotebookApp] Restoring connection for 09d2b03d-99c0-4f79-ad1d-e7640345e261:6271146f8446488abaa5b188a577fac9
-[I 23:14:41.893 NotebookApp] Kernel shutdown: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-Fatal Python error: init_import_size: Failed to import the site module
-Python runtime state: initialized
-Traceback (most recent call last):
-  File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site.py", line 73, in <module>
-    import os
-  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 839, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 934, in get_code
-  File "<frozen importlib._bootstrap_external>", line 1033, in get_data
-KeyboardInterrupt
-[W 23:14:41.999 NotebookApp] Kernel does not exist: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 23:14:41.999 NotebookApp] 404 POST /api/kernels/09d2b03d-99c0-4f79-ad1d-e7640345e261/interrupt (10.64.64.8) 1.810000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[W 23:14:42.207 NotebookApp] Kernel does not exist: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[W 23:14:42.207 NotebookApp] 404 POST /api/kernels/09d2b03d-99c0-4f79-ad1d-e7640345e261/interrupt (10.64.64.8) 0.490000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[E 23:14:42.221 NotebookApp] Exception restarting kernel
-    Traceback (most recent call last):
-      File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/kernels/handlers.py", line 89, in post
-        yield maybe_future(km.restart_kernel(kernel_id))
-      File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/tornado/gen.py", line 762, in run
-        value = future.result()
-      File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 313, in restart_kernel
-        self._check_kernel_id(kernel_id)
-      File "/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 394, in _check_kernel_id
-        raise web.HTTPError(404, u'Kernel does not exist: %s' % kernel_id)
-    tornado.web.HTTPError: HTTP 404: Not Found (Kernel does not exist: 09d2b03d-99c0-4f79-ad1d-e7640345e261)
-[E 23:14:42.269 NotebookApp] {
-      "Host": "localhost:1234",
-      "Connection": "keep-alive",
-      "Content-Length": "0",
-      "Sec-Ch-Ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
-      "Accept": "application/json, text/javascript, */*; q=0.01",
-      "X-Xsrftoken": "2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "X-Requested-With": "XMLHttpRequest",
-      "Sec-Ch-Ua-Mobile": "?0",
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
-      "Sec-Ch-Ua-Platform": "\"Windows\"",
-      "Origin": "http://localhost:1234",
-      "Sec-Fetch-Site": "same-origin",
-      "Sec-Fetch-Mode": "cors",
-      "Sec-Fetch-Dest": "empty",
-      "Referer": "http://localhost:1234/notebooks/AutoEncoder.ipynb",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Cookie": "_ga=GA1.1.2042086844.1645740279; _ga_6NJ57TMFPZ=GS1.1.1651621253.86.0.1651621253.0; username-localhost-1234=\"2|1:0|10:1662587355|23:username-localhost-1234|44:NDYyZmEzY2E0YTg2NDUyZGI1ZDg1YjZkYjk2OTJlYWI=|ec844a2b4415dae3ba37abdc8dfd9688e204d2db0ec4721ffdce43a17744370e\"; _xsrf=2|8707d160|a6fb1fe392f344ec1c7a90082e01cc3d|1663968854",
-      "Accept-Encoding": "gzip, deflate"
-    }
-[E 23:14:42.269 NotebookApp] 500 POST /api/kernels/09d2b03d-99c0-4f79-ad1d-e7640345e261/restart (10.64.64.8) 48.210000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[W 23:14:42.270 NotebookApp] Session not found: session_id='f46b3b9f-8bf6-4f25-a902-453e8bf7c0cd'
-[W 23:14:42.271 NotebookApp] 404 DELETE /api/sessions/f46b3b9f-8bf6-4f25-a902-453e8bf7c0cd (10.64.64.8) 1.580000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[I 23:15:24.952 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:15:26.017 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:17:26.061 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:18:05.062 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:18:58.037 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:19:42.031 NotebookApp] Saving file at /AutoEncoder.ipynb
-[W 23:20:01.990 NotebookApp] Timeout waiting for kernel_info_reply: 09d2b03d-99c0-4f79-ad1d-e7640345e261
-[I 23:20:02.003 NotebookApp] 302 GET / (10.64.64.8) 4.280000ms
-[W 23:20:02.004 NotebookApp] Session not found: session_id='f46b3b9f-8bf6-4f25-a902-453e8bf7c0cd'
-[W 23:20:02.004 NotebookApp] 404 DELETE /api/sessions/f46b3b9f-8bf6-4f25-a902-453e8bf7c0cd (10.64.64.8) 4.400000ms referer=http://localhost:1234/notebooks/AutoEncoder.ipynb
-[I 23:20:02.119 NotebookApp] Saving file at /AutoEncoder.ipynb
-[I 23:20:03.206 NotebookApp] Saving file at /AutoEncoder.ipynb
-slurmstepd: error: *** JOB 6245463 ON g3024 CANCELLED AT 2022-09-30T23:20:58 ***
