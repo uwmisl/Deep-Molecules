@@ -1,0 +1,42 @@
+#!/bin/bash
+#SBATCH --job-name=jupyter
+#SBATCH --partition=gpu-rtx6k
+#SBATCH --account=ml4ml
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=18
+#SBATCH --gres=gpu:6
+#SBATCH --mem=300G
+#SBATCH --time=48:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=sidlak@uw.edu
+
+# I use source to initialize conda into the right environment.
+source ~/.bashrc
+conda activate /gscratch/ml4ml/sidlak/superfold/envs/pyroml
+
+cat $0
+echo "--------------------"
+
+jupyter notebook --no-browser --ip 0.0.0.0 --port=8888
+--------------------
+[W 2023-05-15 11:47:43.042 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-15 11:47:43.042 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-15 11:47:43.042 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-15 11:47:43.042 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-15 11:47:43.042 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-05-15 11:47:43.048 LabApp] JupyterLab extension loaded from /gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyterlab
+[I 2023-05-15 11:47:43.048 LabApp] JupyterLab application directory is /mmfs1/gscratch/ml4ml/sidlak/superfold/envs/pyroml/share/jupyter/lab
+/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyter_server_mathjax/app.py:40: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+  help=_("""The MathJax.js configuration file that is to be used."""),
+[I 11:47:46.536 NotebookApp] Serving notebooks from local directory: /mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules
+[I 11:47:46.536 NotebookApp] Jupyter Notebook 6.4.5 is running at:
+[I 11:47:46.536 NotebookApp] http://g3034:8888/
+[I 11:47:46.536 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 11:47:56.898 NotebookApp] 302 GET / (10.64.64.8) 0.460000ms
+[W 11:48:06.611 NotebookApp] Notebook AutoEncoder.ipynb is not trusted
+[I 11:48:07.244 NotebookApp] Kernel started: 98e38b0f-db32-4eae-bfe7-1ed93a261635, name: python3
+[I 11:50:07.288 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 12:20:46.005 NotebookApp] Starting buffering for 98e38b0f-db32-4eae-bfe7-1ed93a261635:e77277b434b54cf18ee345fb075a6664
+[I 12:41:14.116 NotebookApp] Restoring connection for 98e38b0f-db32-4eae-bfe7-1ed93a261635:e77277b434b54cf18ee345fb075a6664
+[I 13:42:50.471 NotebookApp] Starting buffering for 98e38b0f-db32-4eae-bfe7-1ed93a261635:e77277b434b54cf18ee345fb075a6664
+slurmstepd: error: *** JOB 12475504 ON g3034 CANCELLED AT 2023-05-17T11:47:03 DUE TO TIME LIMIT ***

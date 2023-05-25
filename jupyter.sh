@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=18
 #SBATCH --gres=gpu:6
 #SBATCH --mem=300G
-#SBATCH --time=240:00:00
+#SBATCH --time=48:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=sidlak@uw.edu
 

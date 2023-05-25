@@ -1,0 +1,63 @@
+#!/bin/bash
+#SBATCH --job-name=jupyter
+#SBATCH --partition=gpu-rtx6k
+#SBATCH --account=ml4ml
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=18
+#SBATCH --gres=gpu:6
+#SBATCH --mem=300G
+#SBATCH --time=48:00:00
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=sidlak@uw.edu
+
+# I use source to initialize conda into the right environment.
+source ~/.bashrc
+conda activate /gscratch/ml4ml/sidlak/superfold/envs/pyroml
+
+cat $0
+echo "--------------------"
+
+jupyter notebook --no-browser --ip 0.0.0.0 --port=8888
+--------------------
+[W 2023-05-01 13:02:24.464 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-01 13:02:24.465 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-01 13:02:24.465 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-01 13:02:24.465 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-05-01 13:02:24.465 LabApp] 'password' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-05-01 13:02:24.471 LabApp] JupyterLab extension loaded from /gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyterlab
+[I 2023-05-01 13:02:24.471 LabApp] JupyterLab application directory is /mmfs1/gscratch/ml4ml/sidlak/superfold/envs/pyroml/share/jupyter/lab
+/gscratch/ml4ml/sidlak/superfold/envs/pyroml/lib/python3.8/site-packages/jupyter_server_mathjax/app.py:40: FutureWarning: The alias `_()` will be deprecated. Use `_i18n()` instead.
+  help=_("""The MathJax.js configuration file that is to be used."""),
+[I 13:02:29.874 NotebookApp] Serving notebooks from local directory: /mmfs1/gscratch/ml4ml/sidlak/superfold/superfold/Deep-Molecules
+[I 13:02:29.875 NotebookApp] Jupyter Notebook 6.4.5 is running at:
+[I 13:02:29.875 NotebookApp] http://g3026:8888/
+[I 13:02:29.875 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 13:08:58.302 NotebookApp] 302 GET / (10.64.64.8) 0.500000ms
+[I 13:08:58.318 NotebookApp] 302 GET /tree? (10.64.64.8) 0.510000ms
+[I 13:09:09.579 NotebookApp] 302 POST /login?next=%2Ftree%3F (10.64.64.8) 303.620000ms
+[I 13:09:19.038 NotebookApp] Kernel started: 77274805-a306-45e2-9e52-0f18082fd069, name: python3
+[I 13:17:19.109 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 13:19:19.070 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 13:23:19.051 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 13:25:19.019 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 13:27:19.061 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:01:19.037 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:03:19.070 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:05:19.028 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:13:19.079 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:15:19.132 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:17:19.084 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:21:19.034 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:23:19.075 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:27:19.042 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:29:19.066 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:31:19.077 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:33:19.065 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:46:37.388 NotebookApp] Starting buffering for 77274805-a306-45e2-9e52-0f18082fd069:7e0c66e1edc7452cb758846b733f7571
+[I 14:52:37.811 NotebookApp] Restoring connection for 77274805-a306-45e2-9e52-0f18082fd069:7e0c66e1edc7452cb758846b733f7571
+[I 14:55:18.756 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:57:18.790 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 14:59:18.797 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 15:01:18.760 NotebookApp] Saving file at /AutoEncoder.ipynb
+[I 15:02:45.977 NotebookApp] Starting buffering for 77274805-a306-45e2-9e52-0f18082fd069:7e0c66e1edc7452cb758846b733f7571
+slurmstepd: error: *** JOB 12261683 ON g3026 CANCELLED AT 2023-05-03T13:01:43 DUE TO TIME LIMIT ***
